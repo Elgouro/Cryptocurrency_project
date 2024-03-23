@@ -22,6 +22,7 @@ try:
 except Exception as e:
     print('veuillez revoir vos information de connection ',e)
 
+
 # Chargement des données depuis l'API et intégration dans la base de données
 url = "http://api.coincap.io/v2/assets"
 header = {"Content-Type": "application/json", "Accept-Encoding":"deflate"}
@@ -29,6 +30,7 @@ header = {"Content-Type": "application/json", "Accept-Encoding":"deflate"}
 response = requests.get(url, headers=header)
 responseData = response.json()
 df = pd.json_normalize(responseData, 'data')
+
 
 try:
     # Charger les données dans la table 'cryptotable'
